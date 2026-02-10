@@ -1,0 +1,12 @@
+path: datasets
+
+train: images/train
+val: images/val
+
+names:
+  0: Tree
+  1: Fence
+  2: Door
+  3: Shrub
+  4: Pathway
+  5: Window
