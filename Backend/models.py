@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime
 from sqlalchemy.sql import func
 from datetime import datetime
-from database import Base
+from Backend.database import Base
 
 class Detection(Base):
     __tablename__ = "detections"
