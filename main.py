@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 from Backend.database import init_db
 from routers import auth_router, detection_router
@@ -10,11 +15,12 @@ app = FastAPI(
     description="AI-powered landscape lighting detection and planning API",
     version="1.0.0"
 )
+origins = os.getenv("CORS_ORIGINS", "").split(",")
 
 # CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
